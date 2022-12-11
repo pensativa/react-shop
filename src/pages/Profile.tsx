@@ -1,14 +1,13 @@
-import React from 'react'
-import { Stack } from "@mui/material"
-import { useAppSelector } from '../redux/hooks'
-import { usersReducer } from '../redux/reducers/users'
-import LogIn from '../components/LogIn/LogIn'
-import ProfileView from '../components/LogIn/ProfileView'
-import Registaration from '../components/LogIn/Registaration'
+import React from "react";
+import { Stack } from "@mui/material";
+import { useAppSelector } from "../redux/hooks";
+import LogIn from "../components/LogIn/LogIn";
+import ProfileView from "../components/LogIn/ProfileView";
+import Registaration from "../components/LogIn/Registaration";
 
 const Profile = () => {
   const user = useAppSelector((state) => state.usersReducer.currentUser);
-  
+
   return (
     <Stack
       alignItems="start"
@@ -30,6 +29,6 @@ const Profile = () => {
       )}
     </Stack>
   );
-}
+};
 
-export default Profile
+export default Profile;

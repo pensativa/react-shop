@@ -1,20 +1,19 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { cartReducer } from "../../redux/reducers/cartview";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 
-import './menunav.css'
-import MenuList from '@mui/material/MenuList'
-import MenuItem from '@mui/material/MenuItem'
-import CodeIcon from '@mui/icons-material/Code'
-import AccountBoxIcon from '@mui/icons-material/AccountBox'
-import Store from '@mui/icons-material/Store'
-import LocalMallIcon from '@mui/icons-material/LocalMall'
+import "./menunav.css";
+import MenuList from "@mui/material/MenuList";
+import MenuItem from "@mui/material/MenuItem";
+import CodeIcon from "@mui/icons-material/Code";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import Store from "@mui/icons-material/Store";
+import LocalMallIcon from "@mui/icons-material/LocalMall";
 
 const MenuNav = () => {
-  const products = useAppSelector(state=>state.cartReducer)
-  let num: number = products.length
-  
+  const products = useAppSelector((state) => state.cartReducer);
+  let num: number = products.length;
+
   return (
     <MenuList className="menu">
       <MenuItem className="menu__item">
@@ -60,6 +59,6 @@ const MenuNav = () => {
       </MenuItem>
     </MenuList>
   );
-}
+};
 
-export default MenuNav
+export default MenuNav;

@@ -1,19 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { createBrowserHistory } from "history";
-
-import { productsReducer } from '../redux/reducers/products'
-import {
-  cartReducer,
-  addItem,
-  incrementmore,
-} from "../redux/reducers/cartview";
-import { useAppSelector, useAppDispatch } from '../redux/hooks'
+import { addItem, incrementmore } from "../redux/reducers/cartview";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
 
 import { Button, Grid, Stack } from "@mui/material";
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
-import ButtonCustom from '../components/SmallComponents/ButtonCustom'
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import ButtonCustom from "../components/SmallComponents/ButtonCustom";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import AddIcon from "@mui/icons-material/Add";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -21,8 +15,10 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 const Product = () => {
   const { name } = useParams() as any;
   const dispatch = useAppDispatch();
-  const products = useAppSelector(state=>state.productsReducer);
-  const currentProduct = products.filter((product) => product.id === Number(name))[0];
+  const products = useAppSelector((state) => state.productsReducer);
+  const currentProduct = products.filter(
+    (product) => product.id === Number(name)
+  )[0];
   const cartList = useAppSelector((state) => state.cartReducer);
 
   const addToCart = (el: any) => {
@@ -47,17 +43,17 @@ const Product = () => {
         })
       );
     }
-    setCount(1)
+    setCount(1);
   };
 
-  let [count, setCount] = useState(1)
+  let [count, setCount] = useState(1);
   const minus = () => {
     if (count > 1) {
-      setCount(--count)
+      setCount(--count);
     }
-  }
+  };
 
-  const plus = () => setCount(++count)
+  const plus = () => setCount(++count);
 
   let history = createBrowserHistory();
 
@@ -139,7 +135,7 @@ const Product = () => {
             style={{
               borderTop: "3px solid rgba(26, 31, 22, 0.5)",
               width: "90%",
-              margin: "1em"
+              margin: "1em",
             }}
           >
             <h2>Description</h2>
@@ -155,6 +151,6 @@ const Product = () => {
       )}
     </div>
   );
-}
+};
 
-export default Product
+export default Product;

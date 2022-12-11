@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { cartReducer, removeItem } from '../../redux/reducers/cartview'
+import { removeItem } from '../../redux/reducers/cartview'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { Link } from 'react-router-dom'
 

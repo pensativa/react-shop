@@ -1,9 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { updateUser, usersReducer } from "../../redux/reducers/users";
+import { updateUser } from "../../redux/reducers/users";
 
-import ButtonCustom from '../SmallComponents/ButtonCustom';
-import { Avatar, FormControl, IconButton, Input, InputAdornment, InputLabel } from '@mui/material';
+import ButtonCustom from "../SmallComponents/ButtonCustom";
+import {
+  Avatar,
+  FormControl,
+  IconButton,
+  Input,
+  InputAdornment,
+  InputLabel,
+} from "@mui/material";
 import {
   AccountCircle,
   Visibility,
@@ -15,22 +22,22 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 
 const ProfileView = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   let user = useAppSelector((state) => state.usersReducer.currentUser);
 
   if (user === undefined) {
     user = {
       id: 0,
-      name: '',
-      email: '',
-      password: '',
-      role: '',
-      avatar: '',
-    }
+      name: "",
+      email: "",
+      password: "",
+      role: "",
+      avatar: "",
+    };
   }
-  
+
   const handleShowForm = () => setOpen(!open);
-  
+
   interface State {
     password: string;
     showPassword: boolean;
@@ -72,7 +79,7 @@ const ProfileView = () => {
         password: `${password}`,
         role: "customer",
         avatar: `${img}`,
-      }
+      };
       dispatch(updateUser(data));
     }
   };
@@ -95,7 +102,7 @@ const ProfileView = () => {
                   color="inherit"
                   aria-label="upload picture"
                   component="label"
-                  style={{marginBottom:'1em'}}
+                  style={{ marginBottom: "1em" }}
                 >
                   <input
                     onChange={(e) => setImg(e.target.value)}
@@ -105,7 +112,7 @@ const ProfileView = () => {
                   />
                   <AddAPhotoIcon />
                 </IconButton>
-                <span style={{verticalAlign:"basline"}}>Change photo</span>
+                <span style={{ verticalAlign: "basline" }}>Change photo</span>
                 <FormControl variant="standard">
                   <InputLabel htmlFor="user-name">Change Name</InputLabel>
                   <Input
@@ -186,6 +193,6 @@ const ProfileView = () => {
       ) : null}
     </div>
   );
-}
+};
 
-export default ProfileView
+export default ProfileView;

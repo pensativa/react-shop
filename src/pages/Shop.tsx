@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { productsReducer, fetchProducts } from "../redux/reducers/products";
-import { catReducer } from "../redux/reducers/category";
+import { fetchProducts } from "../redux/reducers/products";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 
 import InputLabel from "@mui/material/InputLabel";
@@ -16,21 +15,23 @@ import { ProductItem } from "../types/Product";
 const Shop = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(fetchProducts())
-    setFilterProducts(products)
+    dispatch(fetchProducts());
+    setFilterProducts(products);
   }, []);
   const products = useAppSelector((state) => state.productsReducer);
   const [filterProducts, setFilterProducts] = useState(products);
 
   const searchFunc = (el: string) => {
     if (el.length < 1) {
-      setFilterProducts(products)
-      setCategory("")
-      setSort("")
+      setFilterProducts(products);
+      setCategory("");
+      setSort("");
     } else {
-      setFilterProducts(filterProducts.filter((item) => {
-        return item.title.toLowerCase().indexOf(el.toLowerCase()) > -1;
-      }));
+      setFilterProducts(
+        filterProducts.filter((item) => {
+          return item.title.toLowerCase().indexOf(el.toLowerCase()) > -1;
+        })
+      );
     }
   };
 
@@ -39,45 +40,45 @@ const Shop = () => {
     setSort(event.target.value as string);
   };
   const sortById = () => {
-    filterProducts.sort((a,b) => a.id - b.id)
-  }
+    filterProducts.sort((a, b) => a.id - b.id);
+  };
   const sortByName = () => {
-    filterProducts.sort((a,b) => a.title > b.title ? 1 : -1)
-  }
+    filterProducts.sort((a, b) => (a.title > b.title ? 1 : -1));
+  };
   const sortByNameZA = () => {
-    filterProducts.sort((a,b) => a.title < b.title ? 1 : -1)
-  }
+    filterProducts.sort((a, b) => (a.title < b.title ? 1 : -1));
+  };
   const sortByPrice = () => {
-    filterProducts.sort((a,b) => a.price - b.price)
-  }
+    filterProducts.sort((a, b) => a.price - b.price);
+  };
   const sortByPriceHight = () => {
-    filterProducts.sort((a,b) => b.price - a.price)
-  }
+    filterProducts.sort((a, b) => b.price - a.price);
+  };
 
   const categories = useAppSelector((state) => state.catReducer);
   const [category, setCategory] = useState("");
   const handleChangeCat = (event: SelectChangeEvent) => {
     if (event.target.value === "") {
-      setFilterProducts(products)
+      setFilterProducts(products);
     } else {
-      setCategory(event.target.value as string)
+      setCategory(event.target.value as string);
       sortByCategoryProducts(Number(event.target.value));
     }
-  }
+  };
   const sortByCategoryProducts = (el: number) => {
-    let categoryArray: ProductItem[] = []
+    let categoryArray: ProductItem[] = [];
     products.map((item) => {
       if (item.category.id === el) {
-        categoryArray.push(item)
+        categoryArray.push(item);
       }
-    })
+    });
     setFilterProducts(categoryArray);
-  }
+  };
 
   const [count, setCount] = useState("8");
   const handleChangeCount = (event: SelectChangeEvent) => {
     setCount(event.target.value);
-  }
+  };
 
   return (
     <>

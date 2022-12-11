@@ -1,30 +1,30 @@
-import React, { useEffect } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { useAppDispatch } from '../../redux/hooks'
-import { fetchCategories } from '../../redux/reducers/category'
-import { fetchProducts } from '../../redux/reducers/products'
-import Main from '../../pages/Main'
-import Cart from '../../pages/Cart'
-import Shop from '../../pages/Shop'
-import Profile from '../../pages/Profile'
-import Category from '../../pages/Category'
-import Product from '../../pages/Product'
-import NavSide from '../nav/NavSide'
-import CartPreview from '../CartPreview/CartPreview'
+import React, { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useAppDispatch } from "../../redux/hooks";
+import { fetchCategories } from "../../redux/reducers/category";
+import { fetchProducts } from "../../redux/reducers/products";
+import Main from "../../pages/Main";
+import Cart from "../../pages/Cart";
+import Shop from "../../pages/Shop";
+import Profile from "../../pages/Profile";
+import Category from "../../pages/Category";
+import Product from "../../pages/Product";
+import NavSide from "../nav/NavSide";
+import CartPreview from "../CartPreview/CartPreview";
 import Grid from "@mui/material/Grid";
-import './gridbox.css'
-import Order from '../../pages/Order'
+import "./gridbox.css";
+import Order from "../../pages/Order";
 
 const GridBox = () => {
-  const dispatch = useAppDispatch()
- 
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     dispatch(fetchCategories());
-    dispatch(fetchProducts())
-  }, [])
+    dispatch(fetchProducts());
+  }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-shop">
       <Grid className="gridbox" container alignItems="flex-start">
         <Grid item xs={1}>
           <NavSide />
@@ -46,6 +46,6 @@ const GridBox = () => {
       </Grid>
     </BrowserRouter>
   );
-}
+};
 
-export default GridBox
+export default GridBox;

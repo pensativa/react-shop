@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { productsReducer } from "../redux/reducers/products";
-import { catReducer } from "../redux/reducers/category";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 
 import InputLabel from "@mui/material/InputLabel";
@@ -16,7 +14,7 @@ import Pagination from "../components/Pagination/Pagination";
 
 const Category = () => {
   const { id } = useParams() as any;
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.productsReducer);
   const categories = useAppSelector((state) => state.catReducer);
   const currentCategory = categories.filter((item) => {
@@ -26,7 +24,6 @@ const Category = () => {
     return item.category.id == id;
   });
   const [filterProducts, setFilterProducts] = useState(sortByCategoryProducts);
-  
 
   //Search by title function
   const searchFunc = (el: string) => {
@@ -145,43 +142,43 @@ const Category = () => {
             </div>
             <div>
               {currentCategory.map((item) => (
-              <FormControl sx={{ m: 1, width: 200 }}>
-                <InputLabel id="category-checkbox-label">Category</InputLabel>
-                <Select
-                  labelId="category-checkbox-label"
-                  id="category-checkbox"
-                  input={<FilledInput />}
-                  value={item.name}
-                  label="Category"
-                >
-                  <MenuItem value={""}>
-                    <Link
-                      style={{
-                        textDecoration: "none",
-                        width: "100%",
-                        color: "black",
-                      }}
-                      to="/shop"
-                    >
-                      All Products
-                    </Link>
-                  </MenuItem>
-                  {categories.map((el) => (
-                    <MenuItem key={el.id} value={el.name}>
+                <FormControl sx={{ m: 1, width: 200 }}>
+                  <InputLabel id="category-checkbox-label">Category</InputLabel>
+                  <Select
+                    labelId="category-checkbox-label"
+                    id="category-checkbox"
+                    input={<FilledInput />}
+                    value={item.name}
+                    label="Category"
+                  >
+                    <MenuItem value={""}>
                       <Link
                         style={{
                           textDecoration: "none",
                           width: "100%",
                           color: "black",
                         }}
-                        to={`/category/${el.id}`}
+                        to="/shop"
                       >
-                        {el.name}
+                        All Products
                       </Link>
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+                    {categories.map((el) => (
+                      <MenuItem key={el.id} value={el.name}>
+                        <Link
+                          style={{
+                            textDecoration: "none",
+                            width: "100%",
+                            color: "black",
+                          }}
+                          to={`/category/${el.id}`}
+                        >
+                          {el.name}
+                        </Link>
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               ))}
             </div>
             <div>

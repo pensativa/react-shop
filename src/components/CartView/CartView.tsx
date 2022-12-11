@@ -1,5 +1,5 @@
 import React from 'react'
-import { cartReducer, removeItem, increment, decrement } from '../../redux/reducers/cartview'
+import { removeItem, increment, decrement, cleared } from '../../redux/reducers/cartview'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { Link } from "react-router-dom"
 
