@@ -1,0 +1,17 @@
+.login .MuiFormControl-root {
+    margin-bottom: 1.5em;
+    display: block;
+}
+
+.login .css-1ptx2yq-MuiInputBase-root-MuiInput-root:after {
+    border-color: #12805D;
+}
+
+.login .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    color: #12805D;
+    font-weight: 600;
+}
+
+.login .MuiButtonBase-root.MuiButton-root {
+    margin-right: 1em;
+}

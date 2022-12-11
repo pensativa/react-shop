@@ -1,0 +1,31 @@
+.category {
+    margin-bottom: 10px;
+    justify-content: space-around;
+}
+
+.catigory__head {
+    margin-top: 0;
+}
+
+.catigory__item.MuiGrid-root {
+    margin: 1em;
+    flex: 1 1 28%;
+    text-align: center;
+    padding: 1em;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.catigory__img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.catigory__title {
+    font-size: 1.5em;
+    margin-bottom: 0;
+    margin-top: 0.5em;
+    font-weight: bold;
+}

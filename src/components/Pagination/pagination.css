@@ -1,0 +1,21 @@
+.pagination {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pagination__item {
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-right: 3px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.pagination__item:hover,
+.pagination__item.active {
+    background-color: black;
+    color: #fff;
+}

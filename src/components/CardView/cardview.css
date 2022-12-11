@@ -1,0 +1,73 @@
+.cartview__item.MuiGrid-root {
+    padding: 1em;
+    margin-bottom: 1.5em;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.cartview__item--preview.MuiGrid-root {
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 20px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.cartview__item:hover {
+    box-shadow: inset 0 0 10px 1px lightgrey;
+}
+
+.cartview__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 1em;
+    min-height: 144px;
+}
+
+.cartview__title,
+.cartview__price {
+    font-weight: 500;
+    font-size: 20px;
+    vertical-align: baseline;
+    margin: 0.5em;
+}
+
+.cartview__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cartview__price svg,
+.cartview__price-one svg {
+    vertical-align: sub;
+}
+
+.cartview__cat {
+    display: block;
+    text-decoration: none;
+    color: #12805D;
+    font-weight: bold;
+    transition: 0.3s;
+    margin: 0.5em;
+}
+
+.cartview__cat:hover {
+    color: black
+}
+
+.cartview__img-item {
+    flex: 1 1 50%;
+    padding: 0.5em;
+}
+
+.cartview__footer {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

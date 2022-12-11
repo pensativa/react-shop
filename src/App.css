@@ -1,0 +1,4 @@
+#root, .App {
+  max-height: 100vh;
+  overflow: hidden;
+}

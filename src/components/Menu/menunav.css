@@ -1,0 +1,42 @@
+.MuiMenuItem-root.menu__item {
+    font-size: inherit;
+    padding: 0;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.menu__item-num {
+    position: absolute;
+    bottom: -4px;
+    left: 16px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #fff;
+    background-color: crimson;
+}
+
+.menu__link {
+    text-decoration: none;
+    color: #1A1F16;
+    padding: 5px;
+    transition: 0.1s;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.menu__link:hover,
+.menu__link:active,
+.menu__link.active {
+    background: #1A1F16;
+    color: #fff
+}
+
+.menu__link svg {
+    vertical-align: bottom;
+}
