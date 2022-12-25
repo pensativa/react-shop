@@ -36,7 +36,9 @@ useEffect(() => {
           <Grid
             className="cartview__item cartview__item--preview"
             item
-            xs={4}
+            xs={0}
+            md={6}
+            lg={4}
             key={item.id}
           >
             <Link className="cartview__link" to={`/product/${item.id}`}>
@@ -64,13 +66,13 @@ useEffect(() => {
           Total: <AttachMoneyIcon /> {totalPrice}
         </p>
       ) : null}
-      {products.length > 0 ?
-      <Link className="cartpreview__button" to="cart">
-        <LocalMallIcon /> View Bag
-      </Link>
-      :
-      <h3 style={{ textAlign: 'center'}}>Your bag is empty</h3>
-      }
+      {products.length > 0 ? (
+        <Link className="cartpreview__button" to="cart">
+          <LocalMallIcon /> View Bag
+        </Link>
+      ) : (
+        <h3 style={{ textAlign: "center" }}>Your bag is empty</h3>
+      )}
     </div>
   );
 }

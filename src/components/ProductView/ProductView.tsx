@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   addItem,
-  cartReducer,
   increment,
 } from "../../redux/reducers/cartview"
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
@@ -40,15 +39,20 @@ const ProductView = (props: {productsArray: ProductItem[]}) => {
     <>
       {!props.productsArray.length && <Preload />}
       {props.productsArray.map((item) => (
-        <Grid className="cartview__item" item xs={3} key={item.id}>
+        <Grid
+          className="cartview__item"
+          item
+          xs={12}
+          sm={6}
+          md={4}
+          lg={3}
+          key={item.id}
+        >
           <Link className="cartview__link" to={`/product/${item.id}`}>
             <img src={`${item.images}`} alt={`${item.title}`} width="150" />
           </Link>
           <p className="cartview__title">{item.title}</p>
-          <Link
-            className="cartview__cat"
-            to={`/category/${item.category.id}`}
-          >
+          <Link className="cartview__cat" to={`/category/${item.category.id}`}>
             {item.category.name}
           </Link>
           <div className="cartview__footer">

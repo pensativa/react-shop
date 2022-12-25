@@ -23,9 +23,15 @@
 
 .cartpreview__title {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     margin-bottom: 1em;
     margin-top: 0;
+}
+
+@media screen and (min-width: 900px) {
+    .cartpreview__title {
+        font-size: 2em;
+    }
 }
 
 .cartpreview__total {

@@ -26,10 +26,10 @@ const GridBox = () => {
   return (
     <BrowserRouter basename="/react-shop">
       <Grid className="gridbox" container alignItems="flex-start">
-        <Grid item xs={1}>
+        <Grid item xs={3} sm={2} md={1}>
           <NavSide />
         </Grid>
-        <Grid className="gridbox__page" item xs={8}>
+        <Grid className="gridbox__page" item xs={9} sm={10} md={8}>
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/profile" element={<Profile />} />
@@ -40,7 +40,7 @@ const GridBox = () => {
             <Route path="/category/:id" element={<Category />} />
           </Routes>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={0} md={3}>
           <CartPreview />
         </Grid>
       </Grid>
